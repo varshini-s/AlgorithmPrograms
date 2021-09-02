@@ -41,6 +41,16 @@ public class PrimeNumbers
 	public static void main(String[] args) 
 	
 	{
+		int lowerBound=0;
+		int upperBound=1000;
+		
+		LinkedList<Integer> listOfPrime=findPrimeNumbers(lowerBound,upperBound);
+		
+		for(int index=0;index<listOfPrime.size();index++)
+		{
+			System.out.println(listOfPrime.get(index));
+			
+		}
 		
 
 		
