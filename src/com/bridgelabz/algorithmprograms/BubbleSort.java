@@ -6,28 +6,27 @@ public class BubbleSort
 
 {
 
-	public static void bubbleSort(int arrayOfIntegers[],int size)
+	public static<E extends Comparable<E>> void bubbleSort(E arrayOfIntegers[],int size)
 	{
 
 		for(int index1=0;index1<size;index1++)
 		{
-			
+
 			for(int index2=0;index2<size;index2++)
 			{
-				if(arrayOfIntegers[index2]>arrayOfIntegers[index1])
+				if(arrayOfIntegers[index2].compareTo(arrayOfIntegers[index1])>0)
 				{
-					int temp=arrayOfIntegers[index2];
+					E temp=arrayOfIntegers[index2];
 					arrayOfIntegers[index2]=arrayOfIntegers[index1];
 					arrayOfIntegers[index1]=temp;
-					
+
 				}
-				
+
 			}
 		}
-		
-		
-		//return arrayOfIntegers;
-		
+
+
+
 	}
 
 	public static void main(String[] args)
@@ -37,7 +36,7 @@ public class BubbleSort
 		System.out.println("enter size of array");
 		int size=scanner.nextInt();
 
-		int arrayOfIntegers[]= new int[size];
+		Integer arrayOfIntegers[]= new Integer[size];
 
 		System.out.println("enter :"+size+" number of elements");
 		for(int index=0;index<size;index++)
@@ -46,15 +45,16 @@ public class BubbleSort
 
 		}
 
+
 		bubbleSort(arrayOfIntegers,size);
-		
+
 		System.out.println("After sorting, the elementes are :");
 		for(int index=0;index<size;index++)
 		{
 			System.out.print(arrayOfIntegers[index]+" ");
 		}
 
-		
+
 	}
 
 }
