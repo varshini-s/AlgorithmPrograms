@@ -6,7 +6,7 @@ public class BubbleSort
 
 {
 
-	public static int[] bubbleSort(int arrayOfIntegers[],int size)
+	public static void bubbleSort(int arrayOfIntegers[],int size)
 	{
 
 		for(int index1=0;index1<size;index1++)
@@ -26,7 +26,7 @@ public class BubbleSort
 		}
 		
 		
-		return arrayOfIntegers;
+		//return arrayOfIntegers;
 		
 	}
 
@@ -46,7 +46,7 @@ public class BubbleSort
 
 		}
 
-		arrayOfIntegers=bubbleSort(arrayOfIntegers,size);
+		bubbleSort(arrayOfIntegers,size);
 		
 		System.out.println("After sorting, the elementes are :");
 		for(int index=0;index<size;index++)
