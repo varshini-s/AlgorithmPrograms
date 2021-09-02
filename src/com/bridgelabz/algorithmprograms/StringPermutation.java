@@ -10,6 +10,14 @@ public class StringPermutation
 	static String  stringArrayFromIteration[];
 	static int arrayIndex=0;
 	
+	private static void swap(char[] characterArray, int firstCharacterIndex, int secondCharacterIndex)
+	{
+		char temp = characterArray[firstCharacterIndex];
+		characterArray[firstCharacterIndex] = characterArray[secondCharacterIndex];
+		characterArray[secondCharacterIndex] = temp;
+	}
+
+
 	
 
 	private static void permutations(char[] characterArray, int currentIndex)
