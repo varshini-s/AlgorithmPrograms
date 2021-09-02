@@ -6,12 +6,12 @@ public class InsertionSort
 
 {
 	
-	public static String[] insertionSort(String listOfWords[])
+	public static <E extends Comparable<E>> void insertionSort(E listOfWords[])
 	{
 		
 		for(int index=0;index<listOfWords.length;index++)
 		{
-			String wordToCheck=listOfWords[index];
+			E wordToCheck=listOfWords[index];
 			int indexToCheck=index-1;
 			
 			while(indexToCheck>=0 && listOfWords[indexToCheck].compareTo(wordToCheck)>0)
@@ -25,7 +25,7 @@ public class InsertionSort
 		}
 		
 		
-		return listOfWords;
+		
 	}
 
 	public static void main(String[] args) 
@@ -35,12 +35,31 @@ public class InsertionSort
 		System.out.println("enter list of words to perform insertion sort");
 		String string=scanner.nextLine();
 		String listOfWords[] = string.toLowerCase().split(" ");
-		listOfWords=insertionSort(listOfWords);
+		insertionSort(listOfWords);
 		System.out.println("after insertion sort , the words are: ");
 		
 		for(int index=0;index<listOfWords.length;index++)
 		{
 			System.out.print(listOfWords[index]+" ");
+		}
+		
+		System.out.println("\nenter number of elements");
+		int size= scanner.nextInt();
+		System.out.println("enter 5 numbers to perform insertion sort");
+		
+		Integer arrayOfNumbers[] = new Integer[size];
+		
+		for(int index=0;index<size;index++)
+		{
+			arrayOfNumbers[index]=scanner.nextInt();
+		}
+		
+		insertionSort(arrayOfNumbers);
+		System.out.println("after insertion sort , the words are: ");
+		
+		for(int index=0;index<arrayOfNumbers.length;index++)
+		{
+			System.out.print(arrayOfNumbers[index]+" ");
 		}
 
 
