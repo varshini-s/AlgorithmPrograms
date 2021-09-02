@@ -9,7 +9,7 @@ public class BinarySearchWord
 {
 
 
-	public static void binarySearch(String listOfWords[],int firstIndex,int lastIndex,String key )
+	public static <E extends Comparable<E>> void binarySearch(E[] listOfWords,int firstIndex,int lastIndex,E key )
 	{
 		int middleIndex = (firstIndex + lastIndex)/2; 
 
@@ -21,7 +21,7 @@ public class BinarySearchWord
 			}
 			else if ( listOfWords[middleIndex].compareTo(key)==0)
 			{  
-				System.out.println("given word : "+key+" is found at index: " + middleIndex);  
+				System.out.println("given word : "+key+" is found in given list of words ");  
 				break;  
 			}
 			else
@@ -32,7 +32,7 @@ public class BinarySearchWord
 		}  
 		if ( firstIndex > lastIndex )
 		{  
-			System.out.println("given word : "+key+" is not found");  
+			System.out.println("given word : "+key+" is not found in given list");  
 		} 
 
 
@@ -51,7 +51,9 @@ public class BinarySearchWord
 
 		Arrays.sort(listOfWords);
 
-		binarySearch(listOfWords, 0, (listOfWords.length)-1, key);
+		binarySearch(listOfWords, 0, listOfWords.length-1, key);
+		
+
 
 
 	}
