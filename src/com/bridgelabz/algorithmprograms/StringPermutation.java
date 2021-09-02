@@ -9,7 +9,7 @@ public class StringPermutation
 	static String  stringArrayFromRecursion[];
 	static String  stringArrayFromIteration[];
 	static int arrayIndex=0;
-	
+
 	private static void swap(char[] characterArray, int firstCharacterIndex, int secondCharacterIndex)
 	{
 		char temp = characterArray[firstCharacterIndex];
@@ -18,18 +18,17 @@ public class StringPermutation
 	}
 
 
-	
+
 
 	private static void permutations(char[] characterArray, int currentIndex)
 	{
-		
-		 
-		
+
+
+
 		if (currentIndex == characterArray.length - 1) 
 		{
 			stringArrayFromRecursion[arrayIndex]=String.valueOf(characterArray);
 			arrayIndex++;
-			//System.out.println(String.valueOf(characterArray));
 		}
 
 		for (int index = currentIndex; index < characterArray.length; index++)
@@ -54,11 +53,11 @@ public class StringPermutation
 		int arraySize=1;
 		for( arraySize = 1; stringLength > 1; stringLength--)
 		{
-	         arraySize *= stringLength;
-	      
+			arraySize *= stringLength;
+
 		}
-		
-		 stringArrayFromRecursion = new String[arraySize];
+
+		stringArrayFromRecursion = new String[arraySize];
 		permutations(string.toCharArray(), 0);
 	}
 
@@ -92,29 +91,28 @@ public class StringPermutation
 
 		stringArrayFromIteration= new String[partialPermutation.size()];
 		partialPermutation.toArray(stringArrayFromIteration);
-		//System.out.println(partialPermutation);
 	}
 
 
-	 
 
-	
-	 public static boolean checkTwoArrayEquality(String stringArrayFromRecursion[], String stringArrayFromIteration[]) 
-	 { 
-	   
-	     if (stringArrayFromRecursion.length != stringArrayFromIteration.length) 
-	         return false;
-	   
-	     Arrays.sort(stringArrayFromRecursion);
-	     Arrays.sort(stringArrayFromIteration);
-	   
-	     for (int index = 0 ; index < stringArrayFromRecursion.length;index++) 
-	         if (stringArrayFromRecursion[index] != stringArrayFromIteration[index]) 
-	             return false;
-	   
-	     return true;
-	 }
-	
+
+
+	public static boolean checkTwoArrayEquality(String stringArrayFromRecursion[], String stringArrayFromIteration[]) 
+	{ 
+
+		if (stringArrayFromRecursion.length != stringArrayFromIteration.length) 
+			return false;
+
+		Arrays.sort(stringArrayFromRecursion);
+		Arrays.sort(stringArrayFromIteration);
+
+		for (int index = 0 ; index < stringArrayFromRecursion.length;index++) 
+			if (stringArrayFromRecursion[index] != stringArrayFromIteration[index]) 
+				return false;
+
+		return true;
+	}
+
 
 
 	public static void main(String[] args) 
@@ -124,7 +122,31 @@ public class StringPermutation
 		generatePermutationsRecursiveMethod(string);
 		generatePermutationsIterativeMethod(string);
 
-		
+
+		System.out.println("permutations from recursive method");
+
+		for(int index=0;index<stringArrayFromRecursion.length;index++)
+		{
+			System.out.print(stringArrayFromRecursion[index]+" ");
+		}
+
+		System.out.println("\npermutations from iterative method");
+		for(int index=0;index<stringArrayFromIteration.length;index++)
+		{
+			System.out.print(stringArrayFromIteration[index]+" ");
+		}
+
+
+
+
+		if(checkTwoArrayEquality(stringArrayFromRecursion, stringArrayFromRecursion)==true)
+		{
+			System.out.println(" \ntwo arrays are equal");
+		}
+		else
+		{
+			System.out.println("\ntwo arrays are not equal");
+		}
 	}
 
 }
